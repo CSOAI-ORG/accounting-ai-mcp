@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "accounting-ai-mcp"
+version = "1.0.0"
+description = "Small business accounting tools - invoicing, VAT, P&L, expense categorization, bank reconciliation"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "MEOK AI Labs", email = "hello@meok.ai" },
+]
+keywords = ["mcp", "ai", "tools", "accounting"]
+dependencies = [
+    "mcp>=1.0.0",
+]
+
+[project.scripts]
+accounting-ai-mcp = "server:mcp.run"
