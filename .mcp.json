@@ -1,0 +1,24 @@
+{
+  "name": "accounting-ai-mcp",
+  "description": "MEOK AI Labs \u2014 Small business accounting tools powered by MEOK AI Labs.",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/accounting-ai-mcp",
+  "runtime": "python",
+  "entrypoint": "server.py",
+  "tools": [
+    "generate_invoice",
+    "categorize_expenses",
+    "calculate_vat",
+    "profit_and_loss",
+    "bank_reconciliation"
+  ],
+  "categories": [
+    "Finance",
+    "Accounting"
+  ],
+  "pricing": {
+    "free": "50 calls/day",
+    "pro": "$9/mo"
+  }
+}

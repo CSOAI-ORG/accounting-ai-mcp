@@ -1,0 +1,10 @@
+name: accounting-ai-mcp
+description: "MEOK AI Labs — Small business accounting tools powered by MEOK AI Labs."
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/accounting-ai-mcp
+license: MIT
+categories: [Finance, Accounting]
+tags: [accounting, bookkeeping, finance, ledger, financial-reporting]
+runtime: python
+entrypoint: server.py
