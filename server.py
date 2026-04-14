@@ -3,6 +3,11 @@ Accounting AI MCP Server
 Small business accounting tools powered by MEOK AI Labs.
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json
 import time
 import hashlib
@@ -63,7 +68,7 @@ def generate_invoice(
     country_code: str = "GB",
     invoice_number: str | None = None,
     due_days: int = 30,
-    notes: str = "") -> dict:
+    notes: str = "", api_key: str = "") -> dict:
     """Generate a professional invoice with line items, VAT, and totals.
 
     Args:
@@ -76,6 +81,10 @@ def generate_invoice(
         due_days: Payment due in N days (default 30)
         notes: Additional notes for the invoice
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("generate_invoice")
 
     vat_rate = VAT_RATES.get(country_code.upper(), 0.20)
@@ -124,12 +133,16 @@ def generate_invoice(
 
 
 @mcp.tool()
-def categorize_expenses(expenses: list[dict]) -> dict:
+def categorize_expenses(expenses: list[dict], api_key: str = "") -> dict:
     """Automatically categorize business expenses by type.
 
     Args:
         expenses: List of dicts with keys: description, amount, date (optional)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("categorize_expenses")
 
     categorized = defaultdict(lambda: {"items": [], "total": 0.0})
@@ -182,7 +195,7 @@ def calculate_vat(
     amount: float,
     country_code: str = "GB",
     vat_inclusive: bool = False,
-    custom_rate: float | None = None) -> dict:
+    custom_rate: float | None = None, api_key: str = "") -> dict:
     """Calculate VAT/tax for any country with support for inclusive/exclusive amounts.
 
     Args:
@@ -191,6 +204,10 @@ def calculate_vat(
         vat_inclusive: If True, amount already includes VAT
         custom_rate: Override with a custom VAT rate (e.g. 0.15 for 15%)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("calculate_vat")
 
     rate = custom_rate if custom_rate is not None else VAT_RATES.get(country_code.upper(), 0.20)
@@ -220,7 +237,7 @@ def profit_and_loss(
     income: list[dict],
     expenses: list[dict],
     period_start: str = "",
-    period_end: str = "") -> dict:
+    period_end: str = "", api_key: str = "") -> dict:
     """Generate a profit and loss statement from income and expense records.
 
     Args:
@@ -229,6 +246,10 @@ def profit_and_loss(
         period_start: Start date (YYYY-MM-DD) for filtering (optional)
         period_end: End date (YYYY-MM-DD) for filtering (optional)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("profit_and_loss")
 
     def filter_by_period(records):
@@ -285,7 +306,7 @@ def profit_and_loss(
 def bank_reconciliation(
     bank_transactions: list[dict],
     book_transactions: list[dict],
-    tolerance: float = 0.01) -> dict:
+    tolerance: float = 0.01, api_key: str = "") -> dict:
     """Reconcile bank statement transactions against book records.
 
     Args:
@@ -293,6 +314,10 @@ def bank_reconciliation(
         book_transactions: List of dicts with keys: date, description, amount, reference (optional)
         tolerance: Amount tolerance for matching (default 0.01)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("bank_reconciliation")
 
     matched = []

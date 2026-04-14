@@ -1,24 +1,149 @@
 {
   "name": "accounting-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Small business accounting tools powered by MEOK AI Labs.",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/accounting-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "> Small business accounting tools - invoicing, VAT, P&L, expense categorization, bank reconciliation",
+  "version": "1.0.0",
   "tools": [
-    "generate_invoice",
-    "categorize_expenses",
-    "calculate_vat",
-    "profit_and_loss",
-    "bank_reconciliation"
-  ],
-  "categories": [
-    "Finance",
-    "Accounting"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "generate_invoice",
+      "description": "Generate a professional invoice with line items, VAT, and totals.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "business_name": {
+            "type": "string"
+          },
+          "client_name": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "currency": {
+            "type": "string"
+          },
+          "country_code": {
+            "type": "string"
+          },
+          "invoice_number": {
+            "type": "string"
+          },
+          "due_days": {
+            "type": "integer"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "business_name",
+          "client_name",
+          "items"
+        ]
+      }
+    },
+    {
+      "name": "categorize_expenses",
+      "description": "Automatically categorize business expenses by type.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expenses": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "required": [
+          "expenses"
+        ]
+      }
+    },
+    {
+      "name": "calculate_vat",
+      "description": "Calculate VAT/tax for any country with support for inclusive/exclusive amounts.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "country_code": {
+            "type": "string"
+          },
+          "vat_inclusive": {
+            "type": "boolean"
+          },
+          "custom_rate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount"
+        ]
+      }
+    },
+    {
+      "name": "profit_and_loss",
+      "description": "Generate a profit and loss statement from income and expense records.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "income": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "expenses": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "period_start": {
+            "type": "string"
+          },
+          "period_end": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "income",
+          "expenses"
+        ]
+      }
+    },
+    {
+      "name": "bank_reconciliation",
+      "description": "Reconcile bank statement transactions against book records.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "bank_transactions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "book_transactions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "tolerance": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "bank_transactions",
+          "book_transactions"
+        ]
+      }
+    }
+  ]
 }
