@@ -63,8 +63,7 @@ def generate_invoice(
     country_code: str = "GB",
     invoice_number: str | None = None,
     due_days: int = 30,
-    notes: str = "",
-) -> dict:
+    notes: str = "") -> dict:
     """Generate a professional invoice with line items, VAT, and totals.
 
     Args:
@@ -183,8 +182,7 @@ def calculate_vat(
     amount: float,
     country_code: str = "GB",
     vat_inclusive: bool = False,
-    custom_rate: float | None = None,
-) -> dict:
+    custom_rate: float | None = None) -> dict:
     """Calculate VAT/tax for any country with support for inclusive/exclusive amounts.
 
     Args:
@@ -222,8 +220,7 @@ def profit_and_loss(
     income: list[dict],
     expenses: list[dict],
     period_start: str = "",
-    period_end: str = "",
-) -> dict:
+    period_end: str = "") -> dict:
     """Generate a profit and loss statement from income and expense records.
 
     Args:
@@ -288,8 +285,7 @@ def profit_and_loss(
 def bank_reconciliation(
     bank_transactions: list[dict],
     book_transactions: list[dict],
-    tolerance: float = 0.01,
-) -> dict:
+    tolerance: float = 0.01) -> dict:
     """Reconcile bank statement transactions against book records.
 
     Args:
