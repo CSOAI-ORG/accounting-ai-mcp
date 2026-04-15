@@ -1,0 +1,10 @@
+{
+  "name": "accounting-ai-mcp",
+  "description": "MEOK AI Labs \u2014 accounting-ai-mcp",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/accounting-ai-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "mcp-wrapper.py"
+}
