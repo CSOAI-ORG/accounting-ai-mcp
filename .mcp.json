@@ -1,6 +1,6 @@
 {
   "name": "accounting-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs MCP Server",
+  "description": "MCP server for accounting ai. Features generate invoice, categorize expenses, calculate vat. From MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
