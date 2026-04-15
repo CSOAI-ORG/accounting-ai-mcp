@@ -1,6 +1,6 @@
 {
   "name": "accounting-ai-mcp",
-  "description": "> Small business accounting tools - invoicing, VAT, P&L, expense categorization, bank reconciliation",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
   "version": "1.0.0",
   "tools": [
     {
@@ -16,10 +16,7 @@
             "type": "string"
           },
           "items": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "type": "array"
           },
           "currency": {
             "type": "string"
@@ -51,10 +48,7 @@
         "type": "object",
         "properties": {
           "expenses": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "type": "array"
           }
         },
         "required": [
@@ -78,7 +72,7 @@
             "type": "boolean"
           },
           "custom_rate": {
-            "type": "string"
+            "type": "number"
           }
         },
         "required": [
@@ -93,16 +87,10 @@
         "type": "object",
         "properties": {
           "income": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "type": "array"
           },
           "expenses": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "type": "array"
           },
           "period_start": {
             "type": "string"
@@ -124,16 +112,10 @@
         "type": "object",
         "properties": {
           "bank_transactions": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "type": "array"
           },
           "book_transactions": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "type": "array"
           },
           "tolerance": {
             "type": "number"

@@ -16,7 +16,7 @@ from decimal import Decimal, ROUND_HALF_UP
 from collections import defaultdict
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("accounting-ai-mcp")
+mcp = FastMCP("accounting-ai", instructions="MEOK AI Labs MCP Server")
 
 # --- Rate Limiting ---
 _call_counts: dict[str, list[float]] = defaultdict(list)
