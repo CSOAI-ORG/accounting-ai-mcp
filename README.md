@@ -1,3 +1,5 @@
+[![accounting-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/accounting-ai-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/accounting-ai-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/accounting-ai-mcp)](https://github.com/CSOAI-ORG/accounting-ai-mcp/stargazers)
