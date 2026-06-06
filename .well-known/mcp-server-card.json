@@ -1,0 +1,28 @@
+{
+  "name": "accounting-ai-mcp",
+  "title": "Accounting Ai Mcp",
+  "description": "MCP server for accounting ai. Features generate invoice, categorize expenses, calculate vat. From MEOK AI Labs.",
+  "version": "1.0.6",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "generate_invoice"
+    },
+    {
+      "name": "categorize_expenses"
+    },
+    {
+      "name": "calculate_vat"
+    },
+    {
+      "name": "profit_and_loss"
+    },
+    {
+      "name": "bank_reconciliation"
+    }
+  ]
+}

@@ -5,8 +5,11 @@ Small business accounting tools powered by MEOK AI Labs.
 
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
-from auth_middleware import check_access
+try:
+    from auth_middleware import check_access
+except ImportError:
+    def check_access(api_key: str = "") -> tuple:
+        return (True, "Open access", "community")
 
 import json
 import time
@@ -30,7 +33,7 @@ def _check_rate_limit(tool_name: str) -> None:
     if len(_call_counts[tool_name]) >= FREE_TIER_LIMIT:
         raise ValueError(
             f"Rate limit exceeded for {tool_name}. Free tier: {FREE_TIER_LIMIT} calls/day. "
-            "Upgrade at https://meok.ai/pricing"
+            "Upgrade at https://councilof.ai"
         )
     _call_counts[tool_name].append(now)
 
@@ -111,7 +114,7 @@ def generate_invoice(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("generate_invoice")
 
@@ -198,7 +201,7 @@ def categorize_expenses(expenses: list[dict], api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("categorize_expenses")
 
@@ -292,7 +295,7 @@ def calculate_vat(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("calculate_vat")
 
@@ -362,7 +365,7 @@ def profit_and_loss(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("profit_and_loss")
 
@@ -459,7 +462,7 @@ def bank_reconciliation(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("bank_reconciliation")
 
@@ -512,5 +515,8 @@ def bank_reconciliation(
     }
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

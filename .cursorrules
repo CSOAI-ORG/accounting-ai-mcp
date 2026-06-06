@@ -1,0 +1,9 @@
+# accounting-ai-mcp - Auto-trigger Rules
+
+When the user asks about accounting, use accounting-ai-mcp tools: generate_invoice, categorize_expenses, calculate_vat, profit_and_loss, bank_reconciliation
+
+Small business accounting tools powered by MEOK AI Labs.
+
+Install: `pip install accounting-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.
