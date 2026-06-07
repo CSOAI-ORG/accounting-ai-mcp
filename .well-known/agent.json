@@ -1,0 +1,68 @@
+{
+  "name": "accounting-ai-mcp",
+  "description": "Accounting Ai MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/accounting-ai-mcp.html",
+  "version": "1.0.6",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "generate_invoice",
+      "name": "Generate Invoice",
+      "description": "generate_invoice via accounting-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "categorize_expenses",
+      "name": "Categorize Expenses",
+      "description": "categorize_expenses via accounting-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "calculate_vat",
+      "name": "Calculate Vat",
+      "description": "calculate_vat via accounting-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "profit_and_loss",
+      "name": "Profit And Loss",
+      "description": "profit_and_loss via accounting-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "bank_reconciliation",
+      "name": "Bank Reconciliation",
+      "description": "bank_reconciliation via accounting-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}

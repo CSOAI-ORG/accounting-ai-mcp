@@ -1,0 +1,23 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "accounting-ai-mcp",
+    "description": "Accounting Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.6",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "accounting-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "generate_invoice",
+      "categorize_expenses",
+      "calculate_vat",
+      "profit_and_loss",
+      "bank_reconciliation"
+    ]
+  }
+}
