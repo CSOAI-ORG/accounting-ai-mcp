@@ -4,9 +4,9 @@
   "version": "1.0.9",
   "description": "Accounting Ai MCP Server by MEOK AI Labs",
   "repository": {
-    "type": "git",
     "url": "https://github.com/CSOAI-ORG/accounting-ai-mcp",
-    "source": "https://github.com/CSOAI-ORG/accounting-ai-mcp"
+    "source": "github",
+    "id": "1209355298"
   },
   "packages": [
     {
